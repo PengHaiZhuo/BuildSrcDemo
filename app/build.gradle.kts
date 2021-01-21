@@ -48,7 +48,7 @@ android{
 
 dependencies {
     implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
-    implementation(BuildConfig.kt.stdlib)
+    implementation(BuildConfig.Kotlin.stdlib)
     implementation(AndroidX.appcompat)
     implementation (AndroidX.constraintlayout)
     implementation (AndroidX.cardview)
@@ -67,34 +67,34 @@ dependencies {
     androidTestImplementation (Testing.espresso)
 
     //JetPack navigation
-    implementation(AndroidX.navigation.dynamic)
-    implementation(AndroidX.navigation.fragmentKtx)
-    implementation(AndroidX.navigation.uiKtx)
-    implementation(AndroidX.navigation.dynamic)
+    implementation(AndroidX.Navigation.dynamic)
+    implementation(AndroidX.Navigation.fragmentKtx)
+    implementation(AndroidX.Navigation.uiKtx)
+    implementation(AndroidX.Navigation.dynamic)
 
     //JetPack lifecycle
-    implementation(AndroidX.lifecycle.liveDataKtx)
-    implementation(AndroidX.lifecycle.viewModelKtx)
-    implementation(AndroidX.lifecycle.viewModelSavedState)
-    implementation(AndroidX.lifecycle.commonJava8)
-    implementation(AndroidX.lifecycle.service)
-    implementation(AndroidX.lifecycle.runtime)
+    implementation(AndroidX.Lifecycle.liveDataKtx)
+    implementation(AndroidX.Lifecycle.viewModelKtx)
+    implementation(AndroidX.Lifecycle.viewModelSavedState)
+    implementation(AndroidX.Lifecycle.commonJava8)
+    implementation(AndroidX.Lifecycle.service)
+    implementation(AndroidX.Lifecycle.runtime)
 
     //JetPack Room
-    implementation(AndroidX.room.runtime)
-    implementation(AndroidX.room.compiler)
-    implementation(AndroidX.room.ktx)
-    implementation(AndroidX.room.rxjava2)
-    implementation(AndroidX.room.guava)
+    implementation(AndroidX.Room.runtime)
+    implementation(AndroidX.Room.compiler)
+    implementation(AndroidX.Room.ktx)
+    implementation(AndroidX.Room.rxjava2)
+    implementation(AndroidX.Room.guava)
 
     implementation(Google.guava_conflict)
 
     //viewPager
-    implementation(AndroidX.viewpager.viewpager2)
+    implementation(AndroidX.ViewPager.viewpager2)
 
     //paging
-    implementation(AndroidX.paging.runtimeKtx)
-    implementation(AndroidX.paging.rxjava2Ktx)
+    implementation(AndroidX.Paging.runtimeKtx)
+    implementation(AndroidX.Paging.rxjava2Ktx)
 
     //顶部SnackBar
     implementation (ThirdPart.topSnackBar)
@@ -105,15 +105,15 @@ dependencies {
     implementation (ThirdPart.retrofit.adapterRxjava)
 
     //okhttp
-    implementation (ThirdPart.okhttp.okhttp)
-    implementation (ThirdPart.okhttp.urlConnection)
-    implementation (ThirdPart.okhttp.loggingInterceptor)
+    implementation (ThirdPart.OkHttp.okhttp)
+    implementation (ThirdPart.OkHttp.urlConnection)
+    implementation (ThirdPart.OkHttp.loggingInterceptor)
 
     //rxjava
     implementation (ThirdPart.rxjava2)
     implementation (ThirdPart.rxandroid)
 
     //glide
-    implementation (ThirdPart.glide.glide)
-    implementation (ThirdPart.glide.compiler)
+    implementation (ThirdPart.Glide.glide)
+    implementation (ThirdPart.Glide.compiler)
 }

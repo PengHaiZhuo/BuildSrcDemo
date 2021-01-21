@@ -1,12 +1,14 @@
 
 /**
  * @author haizhuo
+ * 不带 ktx 后缀的为 java 依赖，核心功能在此库
+ * 带 ktx 后缀为 kotlin 依赖，提供很多方便的扩展函数, ktx 默认引入不带 ktx 的库
+ * 依赖关系参考 https://juejin.im/post/5e567ee1518825494466a938
  */
 @Suppress("SpellCheckingInspection")
 object AndroidX {
     /**
      * appcompat中默认引入了很多库(比如fragment库、core库、annotation库等)，如果想使用其中某个库的更新版本，可以单独引用
-     * 依赖关系参考 https://juejin.im/post/6844904073238413325
      */
     const val appcompat = "androidx.appcompat:appcompat:1.2.0"
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:1.1.3"
@@ -21,14 +23,10 @@ object AndroidX {
 
     const val multidex = "androidx.multidex:multidex:2.0.1"
 
-    val viewpager = viewPager
-
-    object viewPager{
+    object ViewPager{
         const val viewpager = "androidx.viewpager:viewpager:1.0.0"
         const val viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
     }
-
-    val paging= Paging
 
     object Paging {
         private const val paging_version = "2.1.2"
@@ -44,7 +42,6 @@ object AndroidX {
         const val testingCommonKtx = "androidx.paging:paging-common-ktx:$paging_version"
     }
 
-    val fragment = Fragment
 
     object Fragment {
         private const val fragment_version = "1.3.0-alpha05"
@@ -53,8 +50,6 @@ object AndroidX {
         //Testing fragment
         const val testing = "androidx.fragment:fragment-testing:$fragment_version"
     }
-
-    val lifecycle = Lifecycle
 
     object Lifecycle {
         private const val lifecycle_version = "2.2.0"
@@ -74,7 +69,6 @@ object AndroidX {
         const val runtime = "androidx.navigation:navigation-runtime:$lifecycle_version"
     }
 
-    val navigation = Navigation
 
     object Navigation {
         private const val navigation_version = "2.3.0"
@@ -95,7 +89,6 @@ object AndroidX {
         const val testing = "androidx.navigation:navigation-testing:$navigation_version"
     }
 
-    val room = Room
 
     object Room {
         private const val room_version = "2.2.5"

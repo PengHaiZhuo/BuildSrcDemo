@@ -17,7 +17,6 @@ object ThirdPart {
     }
 
     //okhttp
-    val okhttp=OkHttp
     object OkHttp{
         private const val okhttp_version = "4.8.0"
         const val okhttp= "com.squareup.okhttp3:okhttp:$okhttp_version"
@@ -30,7 +29,6 @@ object ThirdPart {
     const val rxandroid="io.reactivex.rxjava2:rxandroid:2.1.1"
 
     //图片加载框架
-    var glide=Glide
     object Glide {
         private const val glide_version = "4.11.0"
         const val glide = "com.github.bumptech.glide:glide:$glide_version"
