@@ -11,12 +11,12 @@ android{
     compileSdkVersion(BuildConfig.compileSdkVersion)
 
     defaultConfig{
-        applicationId = "com.phz.haizhuojetpack_mvvm_practice"
+        applicationId = BuildConfig.applicationId
         minSdkVersion(BuildConfig.minSdkVersion)
         targetSdkVersion(BuildConfig.targetSdkVersion)
         versionCode = BuildConfig.versionCode
         versionName = BuildConfig.versionName
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = BuildConfig.testInstrumentationRunner
 
         multiDexEnabled = true
     }
