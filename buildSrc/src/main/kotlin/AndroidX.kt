@@ -11,41 +11,48 @@ object AndroidX {
      * appcompat中默认引入了很多库(比如fragment库、core库、annotation库等)，如果想使用其中某个库的更新版本，可以单独引用
      */
     const val appcompat = "androidx.appcompat:appcompat:1.2.0"
-    const val constraintlayout = "androidx.constraintlayout:constraintlayout:1.1.3"
+    //约束布局
+    const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.4"
+    //卡片控件
     const val cardview = "androidx.cardview:cardview:1.0.0"
+    //recyclerView
     const val recyclerView = "androidx.recyclerview:recyclerview:1.2.0-alpha03"
-    const val vectordrawable = "androidx.vectordrawable:vectordrawable:1.1.0"
+    //swiperefreshlayout
+    const val swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
-    const val legacySupportV4 = "androidx.legacy:legacy-support-v4:1.0.0"
-
+    //core包+ktx扩展函数
     const val coreKtx = "androidx.core:core-ktx:1.3.1"
+    //activity+ktx扩展函数
     const val activityKtx = "androidx.activity:activity-ktx:1.2.0-alpha04"
-
+    //multidex分包
     const val multidex = "androidx.multidex:multidex:2.0.1"
 
     object ViewPager{
+        //viewpager
         const val viewpager = "androidx.viewpager:viewpager:1.0.0"
+        //viewpager2
         const val viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
     }
 
     object Paging {
+        //建议迁移到3，如果您使用rxjava3
         private const val paging_version = "2.1.2"
-        const val runtime = "androidx.paging:paging-runtime:$paging_version"
+        //const val runtime = "androidx.paging:paging-runtime:$paging_version"
         const val runtimeKtx = "androidx.paging:paging-runtime-ktx:$paging_version"
 
         // optional - RxJava support
-        const val rxjava2 = "androidx.paging:paging-rxjava2:$paging_version"
+        //const val rxjava2 = "androidx.paging:paging-rxjava2:$paging_version"
         const val rxjava2Ktx = "androidx.paging:paging-rxjava2-ktx:$paging_version"
 
         // alternatively - without Android dependencies for testing
-        const val testingCommon = "androidx.paging:paging-common:$paging_version"
+        //const val testingCommon = "androidx.paging:paging-common:$paging_version"
         const val testingCommonKtx = "androidx.paging:paging-common-ktx:$paging_version"
     }
 
 
     object Fragment {
         private const val fragment_version = "1.3.0-alpha05"
-        const val fragment = "androidx.fragment:fragment:$fragment_version"
+        //const val fragment = "androidx.fragment:fragment:$fragment_version"
         const val ktx = "androidx.fragment:fragment-ktx:$fragment_version"
         //Testing fragment
         const val testing = "androidx.fragment:fragment-testing:$fragment_version"
@@ -57,10 +64,10 @@ object AndroidX {
         @Deprecated("lifecycle-extensions 已弃用,不要使用 ViewModelProviders.of 的方式")
         const val extensions = "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
-        const val livedata = "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+        //const val livedata = "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
         const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
-        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+        //const val viewModel = "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
         const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
         const val viewModelSavedState = "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
 
@@ -76,10 +83,10 @@ object AndroidX {
         // 无需直接引用
         const val runtime = "androidx.navigation:navigation-runtime:$navigation_version"
 
-        const val fragment = "androidx.navigation:navigation-fragment:$navigation_version"
+        //const val fragment = "androidx.navigation:navigation-fragment:$navigation_version"
         const val fragmentKtx = "androidx.navigation:navigation-fragment-ktx:$navigation_version"
 
-        const val ui = "androidx.navigation:navigation-ui:$navigation_version"
+        //const val ui = "androidx.navigation:navigation-ui:$navigation_version"
         const val uiKtx = "androidx.navigation:navigation-ui-ktx:$navigation_version"
 
         // Dynamic Feature Module Support
@@ -110,4 +117,12 @@ object AndroidX {
         //Testing Room
         const val testing = "androidx.room:room-testing:$room_version"
     }
+
+
+    //com.android.support:support-v4的androidx映射版本，关于其他支持库查看{https://developer.android.com/topic/libraries/support-library/packages}
+    //关于映射关系查看{https://developer.android.com/jetpack/androidx/migrate/artifact-mappings}
+    const val legacySupportV4 = "androidx.legacy:legacy-support-v4:1.0.0"
+    //vectordrawable
+    //sdk包下graphics.drawable下有一个VectorDrawable类，对于较高的版本不需要引入此库来支持基于XML矢量图形创建可绘制对象。
+    const val vectordrawable = "androidx.vectordrawable:vectordrawable:1.1.0"
 }

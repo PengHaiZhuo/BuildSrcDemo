@@ -1,9 +1,8 @@
 plugins {
     id("com.android.application")
-    kotlin("android")
-    kotlin("kapt")
-    kotlin("android.extensions")
-    id("kotlin-android")
+    id("kotlin-android") //kotlin("android")
+    id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android{
@@ -30,10 +29,13 @@ android{
         exclude("META-INF/gradle/incremental.annotation.processors")
     }
     compileOptions {
+//        sourceCompatibility = JavaVersion.VERSION_11
+//        targetCompatibility = JavaVersion.VERSION_11
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
+//        jvmTarget = 11
         jvmTarget = "1.8"
     }
     buildFeatures {
@@ -48,7 +50,7 @@ android{
 
 dependencies {
     implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
-    implementation(BuildConfig.Kotlin.stdlib)
+    implementation(Kotlin.stdlib)
     implementation(AndroidX.appcompat)
     implementation (AndroidX.constraintlayout)
     implementation (AndroidX.cardview)
@@ -96,13 +98,10 @@ dependencies {
     implementation(AndroidX.Paging.runtimeKtx)
     implementation(AndroidX.Paging.rxjava2Ktx)
 
-    //顶部SnackBar
-    implementation (ThirdPart.topSnackBar)
-
     //retrofit2
-    implementation (ThirdPart.retrofit.retrofit)
-    implementation (ThirdPart.retrofit.convertGson)
-    implementation (ThirdPart.retrofit.adapterRxjava)
+    implementation (ThirdPart.Retrofit.retrofit)
+    implementation (ThirdPart.Retrofit.convertGson)
+    implementation (ThirdPart.Retrofit.adapterRxjava)
 
     //okhttp
     implementation (ThirdPart.OkHttp.okhttp)
@@ -110,7 +109,7 @@ dependencies {
     implementation (ThirdPart.OkHttp.loggingInterceptor)
 
     //rxjava
-    implementation (ThirdPart.rxjava2)
+    implementation (ThirdPart.rxjava3)
     implementation (ThirdPart.rxandroid)
 
     //glide
