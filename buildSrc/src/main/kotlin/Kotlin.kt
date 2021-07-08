@@ -4,6 +4,7 @@
  */
 @SuppressWarnings("SpellCheckingInspection")
 object Kotlin {
+    //Kotlin 1.4 以后，您不再需要在 gradle 上声明 stdlib
     var stdlib ="org.jetbrains.kotlin:kotlin-stdlib:${BuildConfig.kotlin_version}"
     val stdlibJdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${BuildConfig.kotlin_version}"
     val stdlibJdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${BuildConfig.kotlin_version}"

@@ -93,6 +93,27 @@ object ThirdPart {
     const val backgroundLibrary ="com.noober.background:core:1.6.5"
     /*******************************窗口、控件和相关工具***********************************/
 
+    /*******************************依赖注入***********************************/
+    object DI {
+        object Koin {
+            private const val koin_version = "2.1.5"
+
+            val core = "org.koin:koin-core:$koin_version}"
+            val android = "org.koin:koin-android:$koin_version"
+            val androidxViewModel = "org.koin:koin-androidx-viewmodel:$koin_version"
+            val androidScope = "org.koin:koin-android-scope:$$koin_version"
+        }
+
+        object Dagger{
+            //tip:可搭配Hilt使用
+            private const val dagger_version = "2.37"
+            val dagger ="com.google.dagger:dagger:$dagger_version"
+            //use annotationProcessor ,not implementation
+            val compiler ="com.google.dagger:dagger-compiler::$dagger_version"
+        }
+    }
+    /*******************************依赖注入***********************************/
+
     //常用的工具类
     const val utilcodex = "com.blankj:utilcodex:1.26.0"
 
