@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android") //kotlin("android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
+    id("androidx.navigation.safeargs")
 }
 
 android{
@@ -50,15 +51,13 @@ android{
 
 dependencies {
     implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
-    implementation(Kotlin.stdlib)
     implementation(AndroidX.appcompat)
     implementation (AndroidX.constraintlayout)
     implementation (AndroidX.cardview)
     implementation (AndroidX.recyclerView)
-    implementation (AndroidX.vectordrawable)
-    implementation (AndroidX.legacySupportV4)
     implementation (AndroidX.coreKtx)
     implementation (AndroidX.activityKtx)
+    implementation(AndroidX.fragmentKtx)
     //dex分包
     implementation (AndroidX.multidex)
     //material包
@@ -69,7 +68,6 @@ dependencies {
     androidTestImplementation (Testing.espresso)
 
     //JetPack navigation
-    implementation(AndroidX.Navigation.dynamic)
     implementation(AndroidX.Navigation.fragmentKtx)
     implementation(AndroidX.Navigation.uiKtx)
     implementation(AndroidX.Navigation.dynamic)
@@ -80,23 +78,20 @@ dependencies {
     implementation(AndroidX.Lifecycle.viewModelSavedState)
     implementation(AndroidX.Lifecycle.commonJava8)
     implementation(AndroidX.Lifecycle.service)
-    implementation(AndroidX.Lifecycle.runtime)
+    implementation(AndroidX.Lifecycle.runtimeKtx)
 
     //JetPack Room
     implementation(AndroidX.Room.runtime)
     implementation(AndroidX.Room.compiler)
     implementation(AndroidX.Room.ktx)
-    implementation(AndroidX.Room.rxjava2)
+    implementation(AndroidX.Room.rxjava3)
     implementation(AndroidX.Room.guava)
 
     implementation(Google.guava_conflict)
 
     //viewPager
     implementation(AndroidX.ViewPager.viewpager2)
-
-    //paging
-    implementation(AndroidX.Paging.runtimeKtx)
-    implementation(AndroidX.Paging.rxjava2Ktx)
+    implementation(AndroidX.ViewPager.viewpager)
 
     //retrofit2
     implementation (ThirdPart.Retrofit.retrofit)

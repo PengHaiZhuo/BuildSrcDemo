@@ -2,38 +2,39 @@
  * @author haizhuo
  * ·不带 ktx 后缀的为 java 依赖，核心功能在此库
  * ·带 ktx 后缀为 kotlin 依赖，提供很多方便的扩展函数, ktx 默认引入不带 ktx 的库
- * 依赖关系参考 https://juejin.im/post/5e567ee1518825494466a938
- * 版本查看参考 https://androidx.tech/artifacts/appcompat/appcompat/
+ * 依赖关系可以使用：【 gradlew :app:dependencies --scan --configuration releaseRuntimeClasspath >dependenciesTree.txt 输出app模块依赖树 】
+ * 查询包的历史版本：https://androidx.tech/artifacts/appcompat/appcompat/
+ * support包和androidx包映射关系查询：https://developer.android.com/jetpack/androidx/migrate/artifact-mappings
  */
 @Suppress("SpellCheckingInspection")
 object AndroidX {
     /**
-     * appcompat中默认引入了很多库(比如fragment库、core库、annotation库等)，如果想使用其中某个库的更新版本，可以单独引用
+     * appcompat中默认引入了很多库(比如activity库、fragment库、core库、annotation库、drawerlayout库、appcompat-resources)
+     * 如果想使用其中某个库的更新版本，可以单独引用，比如下面的vectordrawable
+     * 提示：对于声明式依赖，同一个库的不同版本，gradle会自动使用最新版本来进行依赖替换、编译
      */
     const val appcompat = "androidx.appcompat:appcompat:1.3.0"
+    //sdk包下graphics.drawable下有一个VectorDrawable类，对于较高的版本不需要引入此库来支持基于XML矢量图形创建可绘制对象。
+    const val vectordrawable = "androidx.vectordrawable:vectordrawable:1.1.0"
+    //core包+ktx扩展函数
+    const val coreKtx = "androidx.core:core-ktx:1.5.0"
+    //activity+ktx扩展函数
+    const val activityKtx = "androidx.activity:activity-ktx:1.2.3"
+    //fragment+ktx扩展函数
+    const val fragmentKtx = "androidx.fragment:fragment-ktx:1.3.4"
+
 
     //约束布局
     const val constraintlayout = "androidx.constraintlayout:constraintlayout:2.0.4"
-
     //卡片控件
     const val cardview = "androidx.cardview:cardview:1.0.0"
-
     //recyclerView
     const val recyclerView = "androidx.recyclerview:recyclerview:1.2.1"
-
     //swiperefreshlayout
     const val swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
-
-    //core包+ktx扩展函数
-    const val coreKtx = "androidx.core:core-ktx:1.6.0"
-
-    //activity+ktx扩展函数
-    const val activityKtx = "androidx.activity:activity-ktx:1.2.3"
-
     object ViewPager {
         //viewpager
         const val viewpager = "androidx.viewpager:viewpager:1.0.0"
-
         //viewpager2
         const val viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
     }
@@ -61,17 +62,6 @@ object AndroidX {
         const val compose = "androidx.paging:paging-compose:1.0.0-alpha10"
     }
 
-
-    object Fragment {
-        private const val fragment_version = "1.3.5"
-
-        //const val fragment = "androidx.fragment:fragment:$fragment_version"
-        const val ktx = "androidx.fragment:fragment-ktx:$fragment_version"
-
-        //Testing fragment
-        const val testing = "androidx.fragment:fragment-testing:$fragment_version"
-    }
-
     object Hilt{
         private const val hilt_version = "2.3.0"
         const val common = "androidx.hilt:hilt-common:$hilt_version"
@@ -79,15 +69,15 @@ object AndroidX {
     }
 
     object Lifecycle {
-        private const val lifecycle_version = "2.3.0"
+        private const val lifecycle_version = "2.3.1"
 
-        @Deprecated("lifecycle-extensions 已弃用,不要使用 ViewModelProviders.of 的方式")
-        const val extensions = "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+        @Deprecated("lifecycle-extensions 已弃用，没有2.3.0版本，ViewModelProviders.of()被废弃了，如果需要使用，可在活动页和碎片页使用ViewModelProvider(ViewModelStoreOwner)")
+        const val extensions = "androidx.lifecycle:lifecycle-extensions:2.1.0"
 
-        //const val livedata = "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+        const val livedata = "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
         const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
-        //const val viewModel = "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
         const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
         //Saved state module for ViewModel
@@ -100,22 +90,20 @@ object AndroidX {
 
         // if using Java8, use the following instead of lifecycle-compiler
         //提供了DefaultLifecycleObserver接口
-        const val commonJava8 =
-            "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+        const val commonJava8 = "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
 
         //helpers for implementing LifecycleOwner in a Service
         const val service = "androidx.lifecycle:lifecycle-service:$lifecycle_version"
 
         //ProcessLifecycleOwner provides a lifecycle for the whole application process
         const val process ="androidx.lifecycle:lifecycle-process:$lifecycle_version"
+
+        const val runtime = "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+        const val runtimeKtx ="androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     }
 
-
+    const val navigation_version = "2.3.5"
     object Navigation {
-        private const val navigation_version = "2.3.5"
-
-        // 无需直接引用
-        const val runtime = "androidx.navigation:navigation-runtime:$navigation_version"
 
         //const val fragment = "androidx.navigation:navigation-fragment:$navigation_version"
         const val fragmentKtx = "androidx.navigation:navigation-fragment-ktx:$navigation_version"
@@ -131,6 +119,9 @@ object AndroidX {
 
         // Testing Navigation
         const val testing = "androidx.navigation:navigation-testing:$navigation_version"
+
+        //Jetpack Compose Integration
+        const val compose ="androidx.navigation:navigation-compose:2.4.0-alpha04"
     }
 
 
@@ -158,12 +149,7 @@ object AndroidX {
 
 
     //com.android.support:support-v4的androidx映射版本，关于其他支持库查看{https://developer.android.com/topic/libraries/support-library/packages}
-    //关于映射关系查看{https://developer.android.com/jetpack/androidx/migrate/artifact-mappings}
     const val legacySupportV4 = "androidx.legacy:legacy-support-v4:1.0.0"
-
-    //vectordrawable
-    //sdk包下graphics.drawable下有一个VectorDrawable类，对于较高的版本不需要引入此库来支持基于XML矢量图形创建可绘制对象。
-    const val vectordrawable = "androidx.vectordrawable:vectordrawable:1.1.0"
 
     /**
     multidex分包
