@@ -114,6 +114,16 @@ object ThirdPart {
     }
     /*******************************依赖注入***********************************/
 
+    //常用运行时权限请求管理库
+    const val rxPermission="com.github.tbruyelle:rxpermissions:0.12"
+
+    object PermissionDispatcher{
+        private const val version= "4.8.0"
+        val permissionsdispatcher="com.github.permissions-dispatcher:permissionsdispatcher:$version"
+        //use kapt，not api or implementation
+        val processor="com.github.permissions-dispatcher:permissionsdispatcher-processor:$version"
+    }
+
     //常用的工具类
     const val utilcodex = "com.blankj:utilcodex:1.26.0"
 
@@ -129,4 +139,7 @@ object ThirdPart {
 
     //启动优化异步加载
     //const val anchors="com.effective.android:anchors:1.1.1"
+
+    //腾讯bug上报收集
+    const val bugly ="com.tencent.bugly:crashreport_upgrade:latest.release"
 }

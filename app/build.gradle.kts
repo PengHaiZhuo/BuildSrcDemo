@@ -82,7 +82,7 @@ dependencies {
 
     //JetPack Room
     implementation(AndroidX.Room.runtime)
-    implementation(AndroidX.Room.compiler)
+    kapt(AndroidX.Room.compiler)
     implementation(AndroidX.Room.ktx)
     implementation(AndroidX.Room.rxjava3)
     implementation(AndroidX.Room.guava)
