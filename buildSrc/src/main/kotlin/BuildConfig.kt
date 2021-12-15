@@ -1,19 +1,16 @@
 /**
- * @author haizhuo
+ * @author phz
  * @description 编译配置信息
  */
 object BuildConfig {
-    const val compileSdkVersion = 30
+    const val compileSdk = 30
     const val buildToolsVersion ="30.0.3"
-    const val minSdkVersion = 19
+    const val minSdkVersion = 21
     const val targetSdkVersion = 30
 
-    const val applicationId ="com.phz.buildsrcdemo"
+    const val applicationId ="com.phz.dev"
     const val testInstrumentationRunner="androidx.test.runner.AndroidJUnitRunner"
 
-    var versionName = "1.1"
-    var versionCode = 2
-
-    var gradle_version = "4.2.2"
-    var kotlin_version = "1.4.31"
+    var versionName = "1.0.0"
+    var versionCode = 1
 }

@@ -1,49 +1,61 @@
+import kotlin.collections.*
 plugins {
     id("com.android.application")
     id("kotlin-android") //kotlin("android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs")
+    id("dagger.hilt.android.plugin")
 }
 
 android{
 
-    compileSdkVersion(BuildConfig.compileSdkVersion)
+    compileSdk = BuildConfig.compileSdk
+    buildToolsVersion = BuildConfig.buildToolsVersion
 
     defaultConfig{
         applicationId = BuildConfig.applicationId
-        minSdkVersion(BuildConfig.minSdkVersion)
-        targetSdkVersion(BuildConfig.targetSdkVersion)
+        minSdk=BuildConfig.minSdkVersion
+        targetSdk = BuildConfig.targetSdkVersion
         versionCode = BuildConfig.versionCode
         versionName = BuildConfig.versionName
         testInstrumentationRunner = BuildConfig.testInstrumentationRunner
 
-        multiDexEnabled = true
+        ndk {
+            //不配置则默认构建并打包所有可用的ABI
+            //same with gradle-> abiFilters 'x86_64','armeabi-v7a','arm64-v8a'
+            abiFilters.addAll(arrayListOf("x86_64", "armeabi-v7a", "arm64-v8a"))
+        }
+    }
+
+    base {
+        //打包名称示例：BuildSrc(1.2)-release.apk
+        archivesBaseName = "BuildSrc(${BuildConfig.versionName})"
     }
 
     buildTypes {
         getByName("release") {
-            consumerProguardFiles("proguard-rules.pro")
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            )
         }
     }
     packagingOptions {
-        exclude("META-INF/gradle/incremental.annotation.processors")
+        resources.excludes += "META-INF/gradle/incremental.annotation.processors"
     }
     compileOptions {
-//        sourceCompatibility = JavaVersion.VERSION_11
-//        targetCompatibility = JavaVersion.VERSION_11
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-//        jvmTarget = 11
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
     buildFeatures {
         dataBinding = true
         viewBinding = true
     }
-    lintOptions {
+    lint {
         isCheckReleaseBuilds =false
         isAbortOnError =false
     }
@@ -80,6 +92,10 @@ dependencies {
     implementation(AndroidX.Lifecycle.service)
     implementation(AndroidX.Lifecycle.runtimeKtx)
 
+    //Hilt
+    implementation(AndroidX.Hilt.common)
+    kapt(AndroidX.Hilt.compiler)
+
     //JetPack Room
     implementation(AndroidX.Room.runtime)
     kapt(AndroidX.Room.compiler)
@@ -87,25 +103,14 @@ dependencies {
     implementation(AndroidX.Room.rxjava3)
     implementation(AndroidX.Room.guava)
 
-    implementation(Google.guava_conflict)
-
     //viewPager
     implementation(AndroidX.ViewPager.viewpager2)
     implementation(AndroidX.ViewPager.viewpager)
-
-    //retrofit2
-    implementation (ThirdPart.Retrofit.retrofit)
-    implementation (ThirdPart.Retrofit.convertGson)
-    implementation (ThirdPart.Retrofit.adapterRxjava)
 
     //okhttp
     implementation (ThirdPart.OkHttp.okhttp)
     implementation (ThirdPart.OkHttp.urlConnection)
     implementation (ThirdPart.OkHttp.loggingInterceptor)
-
-    //rxjava
-    implementation (ThirdPart.rxjava3)
-    implementation (ThirdPart.rxandroid)
 
     //glide
     implementation (ThirdPart.Glide.glide)
