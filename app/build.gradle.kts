@@ -70,8 +70,6 @@ dependencies {
     implementation (AndroidX.coreKtx)
     implementation (AndroidX.activityKtx)
     implementation(AndroidX.fragmentKtx)
-    //dex分包
-    implementation (AndroidX.multidex)
     //material包
     implementation(Google.material)
 

@@ -6,12 +6,11 @@
 object ThirdPart {
     /**网络请求**/
     object Retrofit {//网路请求库retrofit
-        private const val RETROFIT_VERSION = "2.9.0"
+    private const val RETROFIT_VERSION = "2.9.0"
         const val retrofit = "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
 
         //gson转换器
         const val convertGson = "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
-
         //scalars转换器
         const val convertScalars = "com.squareup.retrofit2:converter-scalars:$RETROFIT_VERSION"
         const val adapterRxjava2 = "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION"
@@ -19,7 +18,7 @@ object ThirdPart {
     }
 
     object OkHttp {//okhttp
-        private const val version = "4.8.0"
+    private const val version = "4.8.0"
         const val okhttp = "com.squareup.okhttp3:okhttp:$version"
         const val urlConnection = "com.squareup.okhttp3:okhttp-urlconnection:$version"
         const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$version"
@@ -27,9 +26,6 @@ object ThirdPart {
 
     //用于持久化cookie
     //const val persistentCookieJar = "com.github.franmontiel:PersistentCookieJar:v1.0.1"
-
-    //用于动态替换BaseUrl
-    //const val retrofitUrlManager = "me.jessyan:retrofit-url-manager:1.4.0"
 
     //监听上传下载进度
     //const val progressManager = "me.jessyan:progressmanager:1.5.0"
@@ -46,7 +42,7 @@ object ThirdPart {
 
     /**播放器**/
     object ExoPlayer{
-        private const val version="2.15.0"
+        private const val version="2.16.1"
         //完整依赖
         const val all="com.google.android.exoplayer:exoplayer:$version"
         //核心依赖
@@ -98,9 +94,6 @@ object ThirdPart {
     }
 
     /*******************************窗口、控件和相关工具***********************************/
-    //顶部SnackBar
-    const val topSnackBar = "com.github.PengHaiZhuo:TSnackBar:1.1.1"
-
     //插入即用的dialog
     //项目地址：https://github.com/afollestad/material-dialogs
     object MaterialDialogs {
@@ -198,12 +191,6 @@ object ThirdPart {
     //rxjava3配合RxAndroid
     /*const val rxjava3 = "io.reactivex.rxjava3:rxjava:3.0.13"
     const val rxAndroid3 = "io.reactivex.rxjava3:rxandroid:3.0.0"*/
-
-    //用于解决数据倒灌等问题的LiveData
-    const val unPeekLivedata = "com.kunminx.arch:unpeek-livedata:7.0.4-beta1"
-
-    //启动优化异步加载
-    //const val anchors="com.effective.android:anchors:1.1.1"
 
     //腾讯bug上报收集
     const val bugly ="com.tencent.bugly:crashreport_upgrade:latest.release"

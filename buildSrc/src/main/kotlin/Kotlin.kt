@@ -2,9 +2,8 @@
  * @author phz
  * @introduction 协程等kotlin内部使用类
  */
-@SuppressWarnings("SpellCheckingInspection")
 object Kotlin {
-    var kotlin_version = "1.5.20"
+    var kotlin_version = "1.5.31"
     
     //Kotlin 1.4 以后，您不再需要在 gradle 上声明 stdlib
     var stdlib ="org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

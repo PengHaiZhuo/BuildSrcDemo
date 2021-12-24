@@ -3,10 +3,10 @@
  * @description 编译配置信息
  */
 object BuildConfig {
-    const val compileSdk = 30
+    const val compileSdk = 31
     const val buildToolsVersion ="30.0.3"
-    const val minSdkVersion = 21
-    const val targetSdkVersion = 30
+    const val minSdkVersion = 23
+    const val targetSdkVersion = 31
 
     const val applicationId ="com.phz.dev"
     const val testInstrumentationRunner="androidx.test.runner.AndroidJUnitRunner"
